@@ -1,5 +1,11 @@
-{
-    "youtube.com": [
-        
-    ]
-}
+[
+    {
+        "domains": [
+            "youtube.com",
+            "youtu.be"
+        ],
+        "links": [
+            "dQw4w9WgXcQ"
+        ]
+    }
+]
