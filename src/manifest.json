@@ -29,7 +29,9 @@
   ],
 
   "web_accessible_resources": [
-		"images/icon.png"
+		"images/icon.png",
+    "html/redirect.html",
+    "js/redirect.js"
 	],
 
   "permissions": ["<all_urls>"]
