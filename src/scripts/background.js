@@ -2,20 +2,17 @@ var directs = [];
 fetch('https://raw.githubusercontent.com/UnusualNorm/RickGuard/main/links/direct.json')
     .then(res => res.json()).then(json => {
         directs = json;
-        console.log(json);
     });
 
 var indirects = [];
 fetch('https://raw.githubusercontent.com/UnusualNorm/RickGuard/main/links/indirect.json')
     .then(res => res.json()).then(json => {
         indirects = json;
-        console.log(json);
     });
 
 var ignoredLinks = [];
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log(request);
     switch (request.head) {
         case 'getLinks':
             let ignored = false;
@@ -26,7 +23,6 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
                     sendResponse([]);
                     ignored = true;
                     ignoredLinks.splice(i, 1);
-                    console.log(request.url);
                 }
             }
 
@@ -39,15 +35,11 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
                         const domain = site.domains[i];
                         if (request.content.includes(domain)) {
                             merge = true;
-                            console.log(domain);
                         };
                     }
 
                     if (merge) {
-                        site.links.forEach(link => {
-                            links.push(link);
-                            console.log(link);
-                        });
+                        links.push(site);
                     }
                 });
 
@@ -57,15 +49,11 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
                         const domain = site.domains[i];
                         if (request.content.includes(domain)) {
                             merge = true;
-                            console.log(domain);
                         };
                     }
 
                     if (merge) {
-                        site.links.forEach(link => {
-                            links.push(link);
-                            console.log(link);
-                        });
+                        links.push(site);
                     }
                 });
 
