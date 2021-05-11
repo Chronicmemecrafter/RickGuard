@@ -12,7 +12,7 @@ browser.runtime.sendMessage({
             if (location.href.includes(link)) {
                 isLink = true;
                 let url = browser.runtime.getURL("html/redirect.html");
-                location.href = url + '?url=' + location.href;
+                location.href = url + '?url=' + encodeURIComponent(location.href);
             }
         });
     });

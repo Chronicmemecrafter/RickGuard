@@ -3,7 +3,7 @@
   "description": "Prevent Rick Roll's",
   "manifest_version": 2,
   "name": "RickGuard",
-  "version": "0.2.0",
+  "version": "0.2.1",
 
   "icons": {
     "16": "images/icon.png",

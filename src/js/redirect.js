@@ -1,5 +1,5 @@
 const urlParams = new URLSearchParams(window.location.search);
-const url = urlParams.get('url');
+const url = decodeURIComponent(urlParams.get('url'));
 
 if (!url) top.location.href = browser.runtime.getURL("images/icon.png");
 
